@@ -2,10 +2,19 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import LoginScreen from './src/components/screens/Login'
-import HomeScreen from './src/components/screens/Home'
-import PreMealScreen from './src/components/screens/PreMeal'
-import WorkoutScreen from './src/components/screens/Workout'
-import PostScreen from './src/components/screens/PostMeal'
+
+import HomeMaleScreen from './src/components/screens/Male'
+import HomeFeMaleScreen from './src/components/screens/Female'
+
+import MalePreMealScreen from './src/components/screens/MalePreMeal'
+import FeMalePreMealScreen from './src/components/screens/FemalePreMeal'
+
+import MaleWorkoutScreen from './src/components/screens/MaleWorkout'
+import FeMaleWorkoutScreen from './src/components/screens/FemaleWorkout'
+
+import MalePostMealScreen from './src/components/screens/MalePostMeal'
+import FemalePostMealScreen from './src/components/screens/FemalePostMeal'
+
 
 import 
 { 
@@ -17,26 +26,309 @@ import
    
 } from 'react-navigation'
 
+
+const MaleStack= createStackNavigator({
+  Male : {
+    screen : MaleScreen,
+    navigationOptions:({navigation})=>{
+      return {
+        headerTitle:"Male",
+        headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+        onPress={()=>navigation.openDrawer()}/>
+      }
+    }
+  },
+  // Detail : {
+  //   screen : Detail,
+  //   navigationOptions:({navigation})=>{
+  //     return {
+  //       headerTitle:"Detail"
+  //     }
+  //   }
+  // }
+  })
+
+  const FemaleStack= createStackNavigator({
+    Female : {
+      screen : FemaleScreen,
+      navigationOptions:({navigation})=>{
+        return {
+
+          
+          headerTitle:"Female",
+          headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+          onPress={()=>navigation.openDrawer()}/>
+        }
+      }
+    },
+    // Detail : {
+    //   screen : Detail,
+    //   navigationOptions:({navigation})=>{
+    //     return {
+    //       headerTitle:"Detail"
+    //     }
+    //   }
+    // }
+    })
+    const MalePreMealStack= createStackNavigator({
+      Female : {
+        screen : MalePreMealScreen,
+        navigationOptions:({navigation})=>{
+          return {
+  
+            
+            headerTitle:"Male Pre Workout Meal",
+            headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+            onPress={()=>navigation.openDrawer()}/>
+          }
+        }
+      },
+      // Detail : {
+      //   screen : Detail,
+      //   navigationOptions:({navigation})=>{
+      //     return {
+      //       headerTitle:"Detail"
+      //     }
+      //   }
+      // }
+      })
+      const FeMalePreMealStack= createStackNavigator({
+        Female : {
+          screen : FeMalePreMealScreen,
+          navigationOptions:({navigation})=>{
+            return {
+    
+              
+              headerTitle:"Female Pre Workout Meal",
+              headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+              onPress={()=>navigation.openDrawer()}/>
+            }
+          }
+        },
+        // Detail : {
+        //   screen : Detail,
+        //   navigationOptions:({navigation})=>{
+        //     return {
+        //       headerTitle:"Detail"
+        //     }
+        //   }
+        // }
+        })
+        const MaleWorkoutStack= createStackNavigator({
+          Female : {
+            screen : MaleWorkoutScreen,
+            navigationOptions:({navigation})=>{
+              return {
+      
+                
+                headerTitle:"Male Workout",
+                headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                onPress={()=>navigation.openDrawer()}/>
+              }
+            }
+          },
+          // Detail : {
+          //   screen : Detail,
+          //   navigationOptions:({navigation})=>{
+          //     return {
+          //       headerTitle:"Detail"
+          //     }
+          //   }
+          // }
+          })
+          const FemaleWorkoutStack= createStackNavigator({
+            Female : {
+              screen : FeMaleWorkoutScreen,
+              navigationOptions:({navigation})=>{
+                return {
+        
+                  
+                  headerTitle:"Female Workout",
+                  headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                  onPress={()=>navigation.openDrawer()}/>
+                }
+              }
+            },
+            // Detail : {
+            //   screen : Detail,
+            //   navigationOptions:({navigation})=>{
+            //     return {
+            //       headerTitle:"Detail"
+            //     }
+            //   }
+            // }
+            })
+            const MalePostWorkoutMealStack= createStackNavigator({
+              Female : {
+                screen : MalePostMealScreen,
+                navigationOptions:({navigation})=>{
+                  return {
+          
+                    
+                    headerTitle:"Male Post Workout Meal",
+                    headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                    onPress={()=>navigation.openDrawer()}/>
+                  }
+                }
+              },
+              // Detail : {
+              //   screen : Detail,
+              //   navigationOptions:({navigation})=>{
+              //     return {
+              //       headerTitle:"Detail"
+              //     }
+              //   }
+              // }
+              })
+
+              const FemalePostWorkoutMealStack= createStackNavigator({
+                Female : {
+                  screen : FeMalePostMealScreen,
+                  navigationOptions:({navigation})=>{
+                    return {
+            
+                      
+                      headerTitle:"Female Post Workout Meal",
+                      headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                      onPress={()=>navigation.openDrawer()}/>
+                    }
+                  }
+                },
+                // Detail : {
+                //   screen : Detail,
+                //   navigationOptions:({navigation})=>{
+                //     return {
+                //       headerTitle:"Detail"
+                //     }
+                //   }
+                // }
+                })
+
 const HomeTabNavigator = createBottomTabNavigator({
-  HomeScreen,
-  PreMealScreen,
-  WorkoutScreen,
-  PostScreen
+  Male:MaleStack ,
+  Female:FemaleStack
 },
 {
   navigationOptions:({navigation})=>{
     const {routeName} = navigation.state.routes[navigation.state.index]
     return{
      header : null,
-      headerTitle : routeName
+      headerTitle : routeName,
     }
   }
-}
+})
+const PreMealTabNavigator = createBottomTabNavigator({
+  MalePreMeal:MalePreMealStack ,
+  FeMalePreMeal:FeMalePreMealStack
+},
+{
+  navigationOptions:({navigation})=>{
+    const {routeName} = navigation.state.routes[navigation.state.index]
+    return{
+     header : null,
+      headerTitle : routeName,
+    }
+  }
+})
 
-)
+const WorkoutTabNavigator = createBottomTabNavigator({
+  MaleWorkout:MaleWorkoutStack ,
+  FeMaleWorkout:FeMaleWorkoutScreen
+},
+{
+  navigationOptions:({navigation})=>{
+    const {routeName} = navigation.state.routes[navigation.state.index]
+    return{
+     header : null,
+      headerTitle : routeName,
+    }
+  }
+})
+const PostWorkoutMealTabNavigator = createBottomTabNavigator({
+  MalePostMeal:MalePostMealScreen ,
+  FemalePostMeal:FemalePostMealScreen
+},
+{
+  navigationOptions:({navigation})=>{
+    const {routeName} = navigation.state.routes[navigation.state.index]
+    return{
+     header : null,
+      headerTitle : routeName,
+    }
+  }
+})
+
+// const MaleTabNavigator = createBottomTabNavigator({
+//   Male:MaleScreen 
+// },
+// {
+//   navigationOptions:({navigation})=>{
+//     const {routeName} = navigation.state.routes[navigation.state.index]
+//     return{
+//       headerLeft: <Icon style={{paddingLeft: 10 }} 
+//       name="md-menu" size ={30} 
+//       onPress={()=>navigation.openDrawer()}/>
+//     //  header : null,
+//     //   headerTitle : routeName
+//     }
+//   }
+// }
+// )
+// const FemaleTabNavigator = createBottomTabNavigator({
+//   Female:FemaleScreen
+// },
+// {
+//   navigationOptions:({navigation})=>{
+//     const {routeName} = navigation.state.routes[navigation.state.index]
+//     return{
+//       headerLeft: <Icon style={{paddingLeft: 10 }} 
+//       name="md-menu" size ={30} 
+//       onPress={()=>navigation.openDrawer()}/>
+//     //  header : null,
+//     //   headerTitle : routeName
+//     }
+//   }
+// }
+// )
+
 
 const HomeStackNavigator = createStackNavigator({
   Home : HomeTabNavigator
+},
+{
+  defaultNavigationOptions:({navigation})=>{
+    return {
+      headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+      onPress={()=>navigation.openDrawer()}/>
+    }
+  }
+})
+const PreMealStackNavigator = createStackNavigator({
+  PreMeal : PreMealTabNavigator
+},
+{
+  defaultNavigationOptions:({navigation})=>{
+    return {
+      headerLeft: <Icon style={{paddingLeft: 10 }} 
+      name="md-menu" size ={30} 
+      onPress={()=>navigation.openDrawer()}/>
+    }
+  }
+})
+const WorkoutStackNavigator = createStackNavigator({
+  Workout : WorkoutTabNavigator
+},
+{
+  defaultNavigationOptions:({navigation})=>{
+    return {
+      headerLeft: <Icon style={{paddingLeft: 10 }} 
+      name="md-menu" size ={30} 
+      onPress={()=>navigation.openDrawer()}/>
+    }
+  }
+})
+const PostWorkoutMealStackNavigator = createStackNavigator({
+  PostWorkoutMeal : PostWorkoutMealTabNavigator
 },
 {
   defaultNavigationOptions:({navigation})=>{
@@ -49,9 +341,11 @@ const HomeStackNavigator = createStackNavigator({
 })
 
 
-
 const AppDrawerNavigator = createDrawerNavigator({
-  Home : HomeStackNavigator
+  Home : HomeStackNavigator, 
+  PreMeal:PreMealStackNavigator,
+  Workout: WorkoutStackNavigator,
+  PostMeal:PostWorkoutMealStackNavigator
 });
 
 
