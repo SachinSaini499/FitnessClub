@@ -29,10 +29,10 @@ import
 
 const MaleStack= createStackNavigator({
   Male : {
-    screen : MaleScreen,
+    screen : HomeMaleScreen,
     navigationOptions:({navigation})=>{
       return {
-        headerTitle:"Male",
+        headerTitle:"Home",
         headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
         onPress={()=>navigation.openDrawer()}/>
       }
@@ -50,14 +50,15 @@ const MaleStack= createStackNavigator({
 
   const FemaleStack= createStackNavigator({
     Female : {
-      screen : FemaleScreen,
+      screen : HomeFeMaleScreen ,
       navigationOptions:({navigation})=>{
         return {
 
           
-          headerTitle:"Female",
+          headerTitle:"Home",
           headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
           onPress={()=>navigation.openDrawer()}/>
+          
         }
       }
     },
@@ -71,17 +72,18 @@ const MaleStack= createStackNavigator({
     // }
     })
     const MalePreMealStack= createStackNavigator({
-      Female : {
+      Male : {
         screen : MalePreMealScreen,
         navigationOptions:({navigation})=>{
           return {
   
             
-            headerTitle:"Male Pre Workout Meal",
+            headerTitle:"Pre-Workout Meal",
             headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
             onPress={()=>navigation.openDrawer()}/>
           }
         }
+
       },
       // Detail : {
       //   screen : Detail,
@@ -99,8 +101,9 @@ const MaleStack= createStackNavigator({
             return {
     
               
-              headerTitle:"Female Pre Workout Meal",
+              headerTitle:"Pre-Workout Meal",
               headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+              
               onPress={()=>navigation.openDrawer()}/>
             }
           }
@@ -115,13 +118,12 @@ const MaleStack= createStackNavigator({
         // }
         })
         const MaleWorkoutStack= createStackNavigator({
-          Female : {
+          Male : {
             screen : MaleWorkoutScreen,
             navigationOptions:({navigation})=>{
-              return {
-      
+              return {    
                 
-                headerTitle:"Male Workout",
+                headerTitle:"Workout",
                 headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
                 onPress={()=>navigation.openDrawer()}/>
               }
@@ -140,10 +142,9 @@ const MaleStack= createStackNavigator({
             Female : {
               screen : FeMaleWorkoutScreen,
               navigationOptions:({navigation})=>{
-                return {
-        
+                return {      
                   
-                  headerTitle:"Female Workout",
+                  headerTitle:"Workout",
                   headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
                   onPress={()=>navigation.openDrawer()}/>
                 }
@@ -159,13 +160,13 @@ const MaleStack= createStackNavigator({
             // }
             })
             const MalePostWorkoutMealStack= createStackNavigator({
-              Female : {
+              Male : {
                 screen : MalePostMealScreen,
                 navigationOptions:({navigation})=>{
                   return {
           
                     
-                    headerTitle:"Male Post Workout Meal",
+                    headerTitle:"Post-Workout Meal",
                     headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
                     onPress={()=>navigation.openDrawer()}/>
                   }
@@ -183,12 +184,12 @@ const MaleStack= createStackNavigator({
 
               const FemalePostWorkoutMealStack= createStackNavigator({
                 Female : {
-                  screen : FeMalePostMealScreen,
+                  screen : FemalePostMealScreen,
                   navigationOptions:({navigation})=>{
                     return {
             
                       
-                      headerTitle:"Female Post Workout Meal",
+                      headerTitle:"Post-Workout Meal",
                       headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
                       onPress={()=>navigation.openDrawer()}/>
                     }
@@ -208,18 +209,21 @@ const HomeTabNavigator = createBottomTabNavigator({
   Male:MaleStack ,
   Female:FemaleStack
 },
-{
+{ 
   navigationOptions:({navigation})=>{
     const {routeName} = navigation.state.routes[navigation.state.index]
     return{
      header : null,
-      headerTitle : routeName,
+      headerTitle : routeName
+      
     }
   }
-})
+}
+,
+)
 const PreMealTabNavigator = createBottomTabNavigator({
-  MalePreMeal:MalePreMealStack ,
-  FeMalePreMeal:FeMalePreMealStack
+  Male:MalePreMealStack ,
+  FeMale:FeMalePreMealStack
 },
 {
   navigationOptions:({navigation})=>{
@@ -232,8 +236,8 @@ const PreMealTabNavigator = createBottomTabNavigator({
 })
 
 const WorkoutTabNavigator = createBottomTabNavigator({
-  MaleWorkout:MaleWorkoutStack ,
-  FeMaleWorkout:FeMaleWorkoutScreen
+  Male:MaleWorkoutStack ,
+  FeMale:FeMaleWorkoutScreen
 },
 {
   navigationOptions:({navigation})=>{
@@ -245,8 +249,8 @@ const WorkoutTabNavigator = createBottomTabNavigator({
   }
 })
 const PostWorkoutMealTabNavigator = createBottomTabNavigator({
-  MalePostMeal:MalePostMealScreen ,
-  FemalePostMeal:FemalePostMealScreen
+  Male:MalePostMealScreen ,
+  Female:FemalePostMealScreen
 },
 {
   navigationOptions:({navigation})=>{
