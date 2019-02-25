@@ -249,7 +249,7 @@ const HomeTabNavigator = createBottomTabNavigator({
   }
 },
 )
-const PreMealTabNavigator = createMaterialBottomTabNavigator({
+const PreMealTabNavigator = createBottomTabNavigator({
   Male:MalePreMealStack ,
   Female:FeMalePreMealStack
 },

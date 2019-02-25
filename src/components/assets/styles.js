@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native'
 
-export default StyleSheet.create({
+export default StyleSheet.create({  
     container: {
       flex: 1,
       justifyContent: 'center',
@@ -43,7 +43,27 @@ export default StyleSheet.create({
     image:
     {
       width: 100, height: 80
-    }
+    },
+    container2: {
+      flex: 1,
+     
+      backgroundColor: "#e5e5e5"
+    },
+    SectionHeader:{
+      backgroundColor : '#EC7807',
+      fontSize : 20,
+      padding: 0,
+      color: 'black',
+      fontWeight: 'bold'
+   },
+    SectionListItemS:{
+      fontSize : 16,
+      padding: 6,
+      color: '#000',
+      backgroundColor : '#F5F5F5'
+  }
+
+
 
   });
   
