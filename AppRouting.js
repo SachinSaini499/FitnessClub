@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View,Image } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import LoginScreen from './src/components/screens/Login'
 
@@ -16,15 +16,21 @@ import MalePostMealScreen from './src/components/screens/MalePostMeal'
 import FemalePostMealScreen from './src/components/screens/FemalePostMeal'
 
 
+
+
+
 import 
 { 
    createAppContainer, 
    createSwitchNavigator,
    createDrawerNavigator,
    createBottomTabNavigator,
-   createStackNavigator
+   createStackNavigator,DrawerItems,
+  
+   
    
 } from 'react-navigation'
+import styles from './src/components/assets/styles';
 
 
 const MaleStack= createStackNavigator({
@@ -32,10 +38,13 @@ const MaleStack= createStackNavigator({
     screen : HomeMaleScreen,
     navigationOptions:({navigation})=>{
       return {
-        headerTitle:"Home",
+        headerTitle:"Home",        
         headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-        onPress={()=>navigation.openDrawer()}/>
-      }
+        onPress={()=>navigation.openDrawer()}/>,
+        headerStyle: {
+          backgroundColor: '#EC7807',
+        },       
+      }      
     }
   },
   // Detail : {
@@ -53,12 +62,12 @@ const MaleStack= createStackNavigator({
       screen : HomeFeMaleScreen ,
       navigationOptions:({navigation})=>{
         return {
-
-          
+          headerStyle: {
+            backgroundColor: '#EC7807',
+          },         
           headerTitle:"Home",
           headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-          onPress={()=>navigation.openDrawer()}/>
-          
+          onPress={()=>navigation.openDrawer()}/>          
         }
       }
     },
@@ -76,8 +85,9 @@ const MaleStack= createStackNavigator({
         screen : MalePreMealScreen,
         navigationOptions:({navigation})=>{
           return {
-  
-            
+            headerStyle: {
+              backgroundColor: '#EC7807',
+            },           
             headerTitle:"Pre-Workout Meal",
             headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
             onPress={()=>navigation.openDrawer()}/>
@@ -99,7 +109,9 @@ const MaleStack= createStackNavigator({
           screen : FeMalePreMealScreen,
           navigationOptions:({navigation})=>{
             return {
-    
+              headerStyle: {
+                backgroundColor: '#EC7807',
+              },
               
               headerTitle:"Pre-Workout Meal",
               headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
@@ -122,7 +134,10 @@ const MaleStack= createStackNavigator({
             screen : MaleWorkoutScreen,
             navigationOptions:({navigation})=>{
               return {    
-                
+                headerStyle: {
+                  backgroundColor: '#EC7807',
+                },
+               
                 headerTitle:"Workout",
                 headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
                 onPress={()=>navigation.openDrawer()}/>
@@ -142,8 +157,10 @@ const MaleStack= createStackNavigator({
             Female : {
               screen : FeMaleWorkoutScreen,
               navigationOptions:({navigation})=>{
-                return {      
-                  
+                return {    headerStyle: {
+                  backgroundColor: '#EC7807',
+                },   
+                 
                   headerTitle:"Workout",
                   headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
                   onPress={()=>navigation.openDrawer()}/>
@@ -163,8 +180,9 @@ const MaleStack= createStackNavigator({
               Male : {
                 screen : MalePostMealScreen,
                 navigationOptions:({navigation})=>{
-                  return {
-          
+                  return { headerStyle: {
+                    backgroundColor: '#EC7807',
+                  },                   
                     
                     headerTitle:"Post-Workout Meal",
                     headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
@@ -187,8 +205,10 @@ const MaleStack= createStackNavigator({
                   screen : FemalePostMealScreen,
                   navigationOptions:({navigation})=>{
                     return {
-            
-                      
+                      headerStyle: {
+                        backgroundColor: '#EC7807',
+                      },
+                     
                       headerTitle:"Post-Workout Meal",
                       headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
                       onPress={()=>navigation.openDrawer()}/>
@@ -212,52 +232,82 @@ const HomeTabNavigator = createBottomTabNavigator({
 { 
   navigationOptions:({navigation})=>{
     const {routeName} = navigation.state.routes[navigation.state.index]
-    return{
+    return{      
+      headerStyle: 
+      {
+      backgroundColor: '#EC7807',      
+      },
      header : null,
-      headerTitle : routeName
-      
+     headerTitle : routeName,
+     tabBarIcon: ({ focused, tintColor }) => {
+      const iconName = 'md-person';
+      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+      />;
+  },
+     showIcon: true,    
     }
   }
-}
-,
+},
 )
-const PreMealTabNavigator = createBottomTabNavigator({
+const PreMealTabNavigator = createMaterialBottomTabNavigator({
   Male:MalePreMealStack ,
-  FeMale:FeMalePreMealStack
+  Female:FeMalePreMealStack
 },
 {
   navigationOptions:({navigation})=>{
     const {routeName} = navigation.state.routes[navigation.state.index]
-    return{
-     header : null,
-      headerTitle : routeName,
-    }
+    return{ headerStyle: {
+      backgroundColor: '#EC7807',
+    },
+    header : null,    
+    headerTitle : routeName,
+    tabBarIcon: ({ focused, tintColor }) => {
+      const iconName = 'md-person';
+      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+      />;
+    },}
   }
 })
 
 const WorkoutTabNavigator = createBottomTabNavigator({
   Male:MaleWorkoutStack ,
-  FeMale:FeMaleWorkoutScreen
+  Female:FemalePostWorkoutMealStack
 },
 {
   navigationOptions:({navigation})=>{
     const {routeName} = navigation.state.routes[navigation.state.index]
-    return{
-     header : null,
-      headerTitle : routeName,
+    return{ headerStyle: {
+      backgroundColor: '#EC7807',
+    },
+    header : null,    
+    headerTitle : routeName,
+    tabBarIcon: ({ focused, tintColor }) => {
+      const iconName = 'md-person';
+      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+      />;
+  },
     }
   }
 })
 const PostWorkoutMealTabNavigator = createBottomTabNavigator({
-  Male:MalePostMealScreen ,
-  Female:FemalePostMealScreen
+  Male:MalePostWorkoutMealStack ,
+  Female:FemalePostWorkoutMealStack
 },
 {
   navigationOptions:({navigation})=>{
     const {routeName} = navigation.state.routes[navigation.state.index]
-    return{
-     header : null,
-      headerTitle : routeName,
+    return{ 
+      headerStyle: {
+      backgroundColor: '#EC7807',
+      
+    },
+    header : null,    
+    headerTitle : routeName,
+    tabBarIcon: ({ focused, tintColor }) => {
+      const iconName = 'md-person';
+      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+      />;
+  },
     }
   }
 })
@@ -301,7 +351,9 @@ const HomeStackNavigator = createStackNavigator({
 },
 {
   defaultNavigationOptions:({navigation})=>{
-    return {
+    return {  headerStyle: {
+      backgroundColor: '#EC7807',
+    },
       headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
@@ -312,9 +364,12 @@ const PreMealStackNavigator = createStackNavigator({
 },
 {
   defaultNavigationOptions:({navigation})=>{
-    return {
-      headerLeft: <Icon style={{paddingLeft: 10 }} 
-      name="md-menu" size ={30} 
+    return { 
+      headerStyle: {
+        backgroundColor: '#EC7807',
+      },
+     
+      headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
   }
@@ -324,9 +379,12 @@ const WorkoutStackNavigator = createStackNavigator({
 },
 {
   defaultNavigationOptions:({navigation})=>{
-    return {
-      headerLeft: <Icon style={{paddingLeft: 10 }} 
-      name="md-menu" size ={30} 
+    return { 
+      headerStyle: {
+        backgroundColor: '#EC7807',
+      },
+    
+      headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
   }
@@ -337,12 +395,36 @@ const PostWorkoutMealStackNavigator = createStackNavigator({
 {
   defaultNavigationOptions:({navigation})=>{
     return {
-      headerLeft: <Icon style={{paddingLeft: 10 }} 
-      name="md-menu" size ={30} 
+      headerStyle: {
+        backgroundColor: '#EC7807',
+      },    
+      headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
   }
 })
+const DrawerContent = (props) => (
+  <View>
+    <View
+      style={{       
+        backgroundColor: '#EC7807',            
+        height: 140,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      {/* <Text style={{ color: 'white', fontSize: 30 }}>
+        Header
+      </Text> */}
+       <Image
+          source={require('./src/components/assets/images/dummy2.png')}
+          style={styles.image}
+        />
+    </View>
+    <DrawerItems {...props} />
+  </View>
+)
+
 
 
 const AppDrawerNavigator = createDrawerNavigator({
@@ -350,7 +432,23 @@ const AppDrawerNavigator = createDrawerNavigator({
   PreMeal:PreMealStackNavigator,
   Workout: WorkoutStackNavigator,
   PostMeal:PostWorkoutMealStackNavigator
-});
+}, {
+  // define customComponent here
+  contentComponent: DrawerContent,
+  contentOptions: {
+    headerStyle: {
+      backgroundColor: '#EC7807',
+    },    
+    activeTintColor: '#EC7807',
+    itemsContainerStyle: {
+      marginVertical: 0,
+    },
+    iconContainerStyle: {
+      opacity: 1
+    }
+  }
+}
+);
 
 
 const SwitchNavigator = createSwitchNavigator({

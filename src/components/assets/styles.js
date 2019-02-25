@@ -35,14 +35,14 @@ export default StyleSheet.create({
       padding: 10,
       borderRadius:10,
       width:200,
-
     },
     text:{
       fontWeight: 'bold',
       fontSize:20
-
-
-
+    },
+    image:
+    {
+      width: 100, height: 80
     }
 
   });
