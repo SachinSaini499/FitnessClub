@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Image,Dimensions,ScrollView } from 'react-native';
+import { StyleSheet, TouchableHighlight,Text, View, TouchableOpacity,Image,Dimensions,ScrollView ,Alert} from 'react-native';
 import SimpleAccordion from 'react-native-simple-accordian';
 const deviceWidth = Dimensions.get('window').width
 const accordianData = 'This is sample Accordian Text....';
 import * as _ from 'lodash'
 import { Button } from 'react-native-paper';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 
 
@@ -22,11 +23,11 @@ const DrawerContent = (props) => (
         Header
       </Text> */}
       <Text>Helloooooo</Text>
-      <TouchableHighlight style={styles.button} onPress={()=>navigate('Home')}>
+      <TouchableHighlight style={styles.button}>
           <Text>Login</Text>
         </TouchableHighlight> 
     </View>
-    <DrawerItems {...props} />
+    
   </View>
 )
 
@@ -36,12 +37,11 @@ const DrawerContent = (props) => (
 const sampleAccordianData = [
   {
     title: 'Sunday',
-    Component:'',
-    content: accordianData
+    Component:DrawerContent,   
   },
   {
     title: 'Monday',
-    content: accordianData
+    content: DrawerContent
   },
   {
     title: 'Tuesday',
@@ -83,7 +83,7 @@ export default class AccordianExample extends Component {
   renderHeader(section, i, isOpen) {
     return (
       <View style={{backgroundColor:'#ffffff',flexDirection:'row',}}>
-        <Text style={[styles.headerText,{width:deviceWidth-80,padding:10,textAlign:'left'}]}>{section.title}</Text>
+        <Text style={[styles.headerText,{width:deviceWidth-80,padding:10,textAlign:'center'}]}>{section.title}</Text>     
       </View>
     );
   }
@@ -91,7 +91,9 @@ export default class AccordianExample extends Component {
   renderContent(section, i, isOpen) {
     return (
       <View style={styles.content}>
-        <Text>{section.content}</Text>
+        <Text>{section.content}</Text>     
+        <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={()=>Alert.alert('Alert Title','My Alert Msg',)}/>
+         
       </View>
     );
   }
