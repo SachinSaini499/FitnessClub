@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View,Image } from 'react-native'
 
 export default class Male extends Component {
   render() {
     return (
-      <View>
-        <Text> textInComponent </Text>
-      </View>
+      <View style={{flexDirection: 'row', height: 100, padding: 20,}}>
+      <View style={{backgroundColor: 'blue', flex: 0.3}} />
+      <View style={{backgroundColor: 'red', flex: 0.5}} />      
+    </View>
     )
   }
 }
