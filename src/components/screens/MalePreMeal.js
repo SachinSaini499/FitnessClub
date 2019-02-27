@@ -7,8 +7,6 @@ import * as _ from 'lodash'
 import { Button } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons'
 
-
-
 const DrawerContent = (props) => (
   <View>
     <View
@@ -30,10 +28,6 @@ const DrawerContent = (props) => (
     
   </View>
 )
-
-
-
-
 const sampleAccordianData = [
   {
     title: 'Sunday',
@@ -41,29 +35,32 @@ const sampleAccordianData = [
   },
   {
     title: 'Monday',
-    content: DrawerContent
+    Component:DrawerContent,
   },
   {
     title: 'Tuesday',
-    content: accordianData
+    Component:DrawerContent,
   },
   {
     title: 'Wednesday',
+    Component:DrawerContent,
     content: accordianData
   },
   {
     title: 'Thrusday',
+    Component:DrawerContent,
     content: accordianData
   },
   {
     title: 'Friday',
+    Component:DrawerContent,
     content: accordianData
   },  
   {
     title: 'Saturday',
+    Component:DrawerContent,
     content: accordianData
-  },
-  
+  },  
 ];
 
 export default class AccordianExample extends Component {
@@ -81,7 +78,7 @@ export default class AccordianExample extends Component {
   }
 
   renderHeader(section, i, isOpen) {
-    return (
+    return (      
       <View style={{backgroundColor:'#ffffff',flexDirection:'row',}}>
         <Text style={[styles.headerText,{width:deviceWidth-80,padding:10,textAlign:'center'}]}>{section.title}</Text>     
       </View>
@@ -90,7 +87,7 @@ export default class AccordianExample extends Component {
 
   renderContent(section, i, isOpen) {
     return (
-      <View style={styles.content}>
+      <View style={styles.content}> 
         <Text>{section.content}</Text>     
         <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={()=>Alert.alert('Alert Title','My Alert Msg',)}/>
          
@@ -112,8 +109,7 @@ export default class AccordianExample extends Component {
                 borderRadius:25,
                 margin:10,
                 padding:10,
-                backgroundColor:'#ffffff'
-                
+                backgroundColor:'#ffffff'                
               }}
               activeSection={this.state.open}
               sections={sampleAccordianData}
@@ -135,14 +131,12 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
-      backgroundColor:'#EC7807'
-      
+      backgroundColor:'#EC7807'      
     },
     headerText1:{
       color:'white',
       textAlign:'center',
-      fontSize:22
-     
+      fontSize:22     
     },
     headerTextView:{
       height:50,
@@ -167,8 +161,7 @@ const styles = StyleSheet.create({
     },
     content: {
       padding: 20,
-      backgroundColor: '#ffffff'
-     
+      backgroundColor: '#ffffff'     
     },
   });
     
