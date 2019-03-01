@@ -1,53 +1,65 @@
-import React, { Component } from 'react'
-import { Text, View,Image,StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
-import GridView from 'react-native-super-grid';
-var styles = StyleSheet.create({
-	item: {
-		flex: 1,
-		alignSelf: "stretch",
-		padding: 16
-	},
-	content: {
-		flex: 1,
-		backgroundColor: "red",
-		alignItems: "center",
-		justifyContent: "center"
-	},
-	text: {
-		color: "white",
-		fontSize: 32
-	}
-});
+import React, { Component } from 'react';
+import { StyleSheet, View, Text,Image } from 'react-native';
+import { FlatGrid } from 'react-native-super-grid';
 
-var NUMBERS = [
-  
-	require('../assets/images/1.png'),
-	require('../assets/images/2.png'),
-	require('../assets/images/3.png'),
-	require('../assets/images/4.png'),
-	require('../assets/images/5.png'),
-  require('../assets/images/6.png'),
-  require('../assets/images/7.png'),
-  require('../assets/images/8.png'),
-];
-
-export default class Workout extends Component {
+export default class Example extends Component {
   render() {
-    const {navigate} = this.props.navigation;
-    function renderItem(item) {
-      return (
-        <View style={styles.item}>
-          <View style={styles.content}>
-            <Image source={require(item)} />            
-          </View>
-        </View>
-      );
-    }
+    const items = [
+      { name: 'CHEST', code: '#1abc9c',workoutimage: require('../assets/images/1.png') },
+      { name: 'BICEPS', code: '#3498db',workoutimage: require('../assets/images/2.png') }, 
+      { name: 'TRICEPS', code: '#34495e',workoutimage: require('../assets/images/3.png') },
+      { name: 'SHOULDER', code: '#27ae60',workoutimage: require('../assets/images/4.png') }, 
+      { name: 'LEGS', code: '#8e44ad',workoutimage: require('../assets/images/5.png') },
+      { name: 'BACK', code: '#f1c40f',workoutimage: require('../assets/images/6.png') }, 
+      { name: 'ABS', code: '#e74c3c',workoutimage: require('../assets/images/7.png') }, 
+      { name: 'FOREARM', code: '#95a5a6',workoutimage: require('../assets/images/8.png') },
+      { name: 'CARDIO', code: '#d35400',workoutimage: require('../assets/images/8.png') }, 
+      { name: 'CALF', code: '#bdc3c7',workoutimage: require('../assets/images/8.png') }, 
+    ];
     return (
-    <View >
-     <GridView rows={2} columns={4} itemWidth={130} items={NUMBERS} renderItem={renderItem}/>
-    </View>
-    )
+      <FlatGrid
+        itemDimension={130}
+        items={items}
+        style={styles.gridView}
+        // staticDimension={300}
+        // fixed
+        // spacing={20}
+        renderItem={({ item, index }) => (
+          <View style={[styles.itemContainer, { backgroundColor: item.code }]}>   
+            <Image style={styles.imageThumbnail} source={item.workoutimage} />
+            <Text style={styles.itemName}>{item.name}</Text>
+          </View>
+        )}
+      />
+    );
   }
 }
+const styles = StyleSheet.create({
+  gridView: {
+    marginTop: 2,
+    flex: 1,
+  },
+  itemContainer: {
+    justifyContent: 'flex-end',
+    borderRadius: 5,
+    padding: 10,
+    height: 150,
+  },
+  itemName: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '600',
+  },
+  itemCode: {
+    fontWeight: '600',
+    fontSize: 12,
+    color: '#fff',
+  },
+  imageThumbnail: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 110,
+    width:125,
+    padding:5,
+  },
+});
