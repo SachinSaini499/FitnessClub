@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text,Image } from 'react-native';
+import { StyleSheet, View, Text,Image,TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 
 export default class Example extends Component {
+
+  constructor(props){
+    super(props);
+    this._onPressButton = this._onPressButton.bind(this);
+  }
+  _onPressButton(txt) {
+    this.props.navigation.navigate('MaleWorkout_Bi');
+  }
+ 
   render() {
     const items = [
       { name: 'CHEST', code: '#1abc9c',workoutimage: require('../assets/images/1.png') },
@@ -16,6 +25,7 @@ export default class Example extends Component {
       { name: 'CARDIO', code: '#d35400',workoutimage: require('../assets/images/8.png') }, 
       { name: 'CALF', code: '#bdc3c7',workoutimage: require('../assets/images/8.png') }, 
     ];
+    const {navigate} = this.props.navigation;
     return (
       <FlatGrid
         itemDimension={130}
@@ -25,9 +35,11 @@ export default class Example extends Component {
         // fixed
         // spacing={20}
         renderItem={({ item, index }) => (
-          <View style={[styles.itemContainer, { backgroundColor: item.code }]}>   
-            <Image style={styles.imageThumbnail} source={item.workoutimage} />
+          <View style={[styles.itemContainer, { backgroundColor: item.code }]}>  
+           <TouchableOpacity  onPress={() => this.props.navigation.navigate('MaleWorkout_Bi')}>
+            <Image style={styles.imageThumbnail} source={item.workoutimage}   />
             <Text style={styles.itemName}>{item.name}</Text>
+            </TouchableOpacity > 
           </View>
         )}
       />

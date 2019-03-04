@@ -15,9 +15,7 @@ import FeMaleWorkoutScreen from './src/components/screens/FemaleWorkout'
 import MalePostMealScreen from './src/components/screens/MalePostMeal'
 import FemalePostMealScreen from './src/components/screens/FemalePostMeal'
 
-
-
-
+import MaleWorkoutBiScreen from './src/components/screens/MaleWorkout_Bi'
 
 import 
 { 
@@ -25,12 +23,41 @@ import
    createSwitchNavigator,
    createDrawerNavigator,
    createBottomTabNavigator,
-   createStackNavigator,DrawerItems,
-  
-   
+   createStackNavigator,DrawerItems,   
    
 } from 'react-navigation'
 import styles from './src/components/assets/styles';
+
+
+
+
+
+// const MaleWorkoutBiStackNavigator = createStackNavigator({
+//   Male : {
+//     screen : MaleWorkoutBiScreen,
+//     navigationOptions:({navigation})=>{
+//       return {
+//         headerTitle:"Home",        
+//         headerLeft : <Icon style={{paddingLeft: 10 }} name="arrow-back" size ={20} 
+//         onPress={()=>navigation.openDrawer()}/>,
+//         headerStyle: {
+//           backgroundColor: '#EC7807',
+//         },       
+//       }      
+//     }
+//   },
+//   // Detail : {
+//   //   screen : Detail,
+//   //   navigationOptions:({navigation})=>{
+//   //     return {
+//   //       headerTitle:"Detail"
+//   //     }
+//   //   }
+//   // }
+//   })
+
+
+
 
 
 const MaleStack= createStackNavigator({
@@ -38,12 +65,12 @@ const MaleStack= createStackNavigator({
     screen : HomeMaleScreen,
     navigationOptions:({navigation})=>{
       return {
-        headerTitle:"Home",        
-        headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-        onPress={()=>navigation.openDrawer()}/>,
-        headerStyle: {
-          backgroundColor: '#EC7807',
-        },       
+        header: null,        
+        // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+        // onPress={()=>navigation.openDrawer()}/>,
+        // headerStyle: {
+        //   backgroundColor: '#EC7807',
+        // },       
       }      
     }
   },
@@ -62,12 +89,13 @@ const MaleStack= createStackNavigator({
       screen : HomeFeMaleScreen ,
       navigationOptions:({navigation})=>{
         return {
-          headerStyle: {
-            backgroundColor: '#EC7807',
-          },         
-          headerTitle:"Home",
-          headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-          onPress={()=>navigation.openDrawer()}/>          
+          header: null,
+          // headerStyle: {
+          //   backgroundColor: '#EC7807',
+          // },         
+          
+          // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+          // onPress={()=>navigation.openDrawer()}/>          
         }
       }
     },
@@ -85,12 +113,13 @@ const MaleStack= createStackNavigator({
         screen : MalePreMealScreen,
         navigationOptions:({navigation})=>{
           return {
-            headerStyle: {
-              backgroundColor: '#EC7807',
-            },           
-            headerTitle:"Pre-Workout Meal",
-            headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-            onPress={()=>navigation.openDrawer()}/>
+            header: null,
+            // headerStyle: {
+            //   backgroundColor: '#EC7807',
+            // },           
+            // headerTitle:"Pre-Workout Meal",
+            // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+            // onPress={()=>navigation.openDrawer()}/>
           }
         }
 
@@ -109,14 +138,15 @@ const MaleStack= createStackNavigator({
           screen : FeMalePreMealScreen,
           navigationOptions:({navigation})=>{
             return {
-              headerStyle: {
-                backgroundColor: '#EC7807',
-              },
+              header: null,
+              // headerStyle: {
+              //   backgroundColor: '#EC7807',
+              // },
               
-              headerTitle:"Pre-Workout Meal",
-              headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+              // headerTitle:"Pre-Workout Meal",
+              // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
               
-              onPress={()=>navigation.openDrawer()}/>
+              // onPress={()=>navigation.openDrawer()}/>
             }
           }
         },
@@ -134,6 +164,21 @@ const MaleStack= createStackNavigator({
             screen : MaleWorkoutScreen,
             navigationOptions:({navigation})=>{
               return {    
+                header: null,
+                // headerStyle: {
+                //   backgroundColor: '#EC7807',
+                // },
+               
+                // headerTitle:"Workout",
+                // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                // onPress={()=>navigation.openDrawer()}/>
+              }
+            }
+          },
+          MaleWorkoutBi : {
+            screen : MaleWorkoutBiScreen,
+            navigationOptions:({navigation})=>{
+              return {    
                 headerStyle: {
                   backgroundColor: '#EC7807',
                 },
@@ -143,7 +188,7 @@ const MaleStack= createStackNavigator({
                 onPress={()=>navigation.openDrawer()}/>
               }
             }
-          },
+          }
           // Detail : {
           //   screen : Detail,
           //   navigationOptions:({navigation})=>{
@@ -157,13 +202,15 @@ const MaleStack= createStackNavigator({
             Female : {
               screen : FeMaleWorkoutScreen,
               navigationOptions:({navigation})=>{
-                return {    headerStyle: {
-                  backgroundColor: '#EC7807',
-                },   
+                return {    
+                  header: null,
+                //   headerStyle: {
+                //   backgroundColor: '#EC7807',
+                // },   
                  
-                  headerTitle:"Workout",
-                  headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-                  onPress={()=>navigation.openDrawer()}/>
+                  // headerTitle:"Workout",
+                  // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                  // onPress={()=>navigation.openDrawer()}/>
                 }
               }
             },
@@ -180,13 +227,15 @@ const MaleStack= createStackNavigator({
               Male : {
                 screen : MalePostMealScreen,
                 navigationOptions:({navigation})=>{
-                  return { headerStyle: {
-                    backgroundColor: '#EC7807',
-                  },                   
+                  return { 
+                    header: null,
+                  //   headerStyle: {
+                  //   backgroundColor: '#EC7807',
+                  // },                   
                     
-                    headerTitle:"Post-Workout Meal",
-                    headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-                    onPress={()=>navigation.openDrawer()}/>
+                  //   headerTitle:"Post-Workout Meal",
+                  //   headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                  //   onPress={()=>navigation.openDrawer()}/>
                   }
                 }
               },
@@ -205,13 +254,14 @@ const MaleStack= createStackNavigator({
                   screen : FemalePostMealScreen,
                   navigationOptions:({navigation})=>{
                     return {
-                      headerStyle: {
-                        backgroundColor: '#EC7807',
-                      },
+                      header: null,
+                      // headerStyle: {
+                      //   backgroundColor: '#EC7807',
+                      // },
                      
-                      headerTitle:"Post-Workout Meal",
-                      headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-                      onPress={()=>navigation.openDrawer()}/>
+                      // headerTitle:"Post-Workout Meal",
+                      // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+                      // onPress={()=>navigation.openDrawer()}/>
                     }
                   }
                 },
@@ -226,91 +276,127 @@ const MaleStack= createStackNavigator({
                 })
 
 const HomeTabNavigator = createBottomTabNavigator({
-  Male:MaleStack ,
-  Female:FemaleStack
+  Male: {
+    screen: MaleStack,
+    navigationOptions: () => ({
+      activeTintColor: '#EC7807',
+        tabBarIcon: ({tintColor}) => (
+            <Icon
+                name="md-man"
+                color={'#EC7807'}
+                size={24}
+            />
+        )
+    }),
+} ,  
+Female: {
+  screen: FemaleStack,
+  navigationOptions: () => ({
+   
+      tabBarIcon: ({tintColor}) => (
+          <Icon
+              name="md-woman"
+              color={'#EC7807'}
+              size={24}
+          />
+      )
+  }), 
+} 
 },
-{ 
-  navigationOptions:({navigation})=>{
-    const {routeName} = navigation.state.routes[navigation.state.index]
-    return{      
-      headerStyle: 
-      {
-      backgroundColor: '#EC7807',      
-      },
-     header : null,
-     headerTitle : routeName,
-     tabBarIcon: ({ focused, tintColor }) => {
-      const iconName = 'md-person';
-      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-      />;
-  },
-     showIcon: true,    
-    }
-  }
-},
+
+
+
 )
 const PreMealTabNavigator = createBottomTabNavigator({
-  Male:MalePreMealStack ,
-  Female:FeMalePreMealStack
-},
-{
-  navigationOptions:({navigation})=>{
-    const {routeName} = navigation.state.routes[navigation.state.index]
-    return{ headerStyle: {
-      backgroundColor: '#EC7807',
-    },
-    header : null,    
-    headerTitle : routeName,
-    tabBarIcon: ({ focused, tintColor }) => {
-      const iconName = 'md-person';
-      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-      />;
-    },}
-  }
+  Male: {
+    screen: MalePreMealStack,
+    navigationOptions: () => ({
+      activeTintColor: '#EC7807',
+        tabBarIcon: ({tintColor}) => (
+            <Icon
+                name="md-man"
+                color={'#EC7807'}
+                size={24}
+            />
+        )
+    }),
+} ,  
+Female: {
+  screen: FeMalePreMealStack,
+  navigationOptions: () => ({
+   
+      tabBarIcon: ({tintColor}) => (
+          <Icon
+              name="md-woman"
+              color={'#EC7807'}
+              size={24}
+          />
+      )
+  }), 
+}
 })
 
-const WorkoutTabNavigator = createBottomTabNavigator({
-  Male:MaleWorkoutStack ,
-  Female:FemalePostWorkoutMealStack
-},
-{
-  navigationOptions:({navigation})=>{
-    const {routeName} = navigation.state.routes[navigation.state.index]
-    return{ headerStyle: {
-      backgroundColor: '#EC7807',
-    },
-    header : null,    
-    headerTitle : routeName,
-    tabBarIcon: ({ focused, tintColor }) => {
-      const iconName = 'md-person';
-      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-      />;
-  },
-    }
-  }
-})
-const PostWorkoutMealTabNavigator = createBottomTabNavigator({
-  Male:MalePostWorkoutMealStack ,
-  Female:FemalePostWorkoutMealStack
-},
-{
-  navigationOptions:({navigation})=>{
-    const {routeName} = navigation.state.routes[navigation.state.index]
-    return{ 
-      headerStyle: {
-      backgroundColor: '#EC7807',
-      
-    },
-    header : null,    
-    headerTitle : routeName,
-    tabBarIcon: ({ focused, tintColor }) => {
-      const iconName = 'md-person';
-      return <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-      />;
-  },
-    }
-  }
-})
+const WorkoutTabNavigator = createBottomTabNavigator(
+  {
+    Male: {
+      screen: MaleWorkoutStack,
+      navigationOptions: () => ({
+        activeTintColor: '#EC7807',
+          tabBarIcon: ({tintColor}) => (
+              <Icon
+                  name="md-man"
+                  color={'#EC7807'}
+                  size={24}
+              />
+          )
+      }),
+  } ,  
+  Female: {
+    screen: FemaleWorkoutStack,
+    navigationOptions: () => ({
+     
+        tabBarIcon: ({tintColor}) => (
+            <Icon
+                name="md-woman"
+                color={'#EC7807'}
+                size={24}
+            />
+        )
+    }), 
+  }  
+}  )
+
+const PostWorkoutMealTabNavigator = createBottomTabNavigator(
+  {
+    Male: {
+      screen: MalePostWorkoutMealStack,
+      navigationOptions: () => ({
+        activeTintColor: '#EC7807',
+          tabBarIcon: ({tintColor}) => (
+              <Icon
+                  name="md-man"
+                  color={'#EC7807'}
+                  size={24}
+              />
+          )
+      }),
+  } ,  
+  Female: {
+    screen: FemalePostWorkoutMealStack,
+    navigationOptions: () => ({
+     
+        tabBarIcon: ({tintColor}) => (
+            <Icon
+                name="md-woman"
+                color={'#EC7807'}
+                size={24}
+            />
+        )
+    }), 
+  }  
+}
+  
+  )
 
 // const MaleTabNavigator = createBottomTabNavigator({
 //   Male:MaleScreen 
@@ -351,24 +437,36 @@ const HomeStackNavigator = createStackNavigator({
 },
 {
   defaultNavigationOptions:({navigation})=>{
-    return {  headerStyle: {
+    return { 
+      style: {
+        backgroundColor: 'black',
+      }, 
+      headerTitle:"Home",
+      headerStyle: {
       backgroundColor: '#EC7807',
     },
       headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
   }
-})
+}
+,
+)
 const PreMealStackNavigator = createStackNavigator({
   PreMeal : PreMealTabNavigator
 },
 {
   defaultNavigationOptions:({navigation})=>{
     return { 
+      style: {
+        backgroundColor: 'black',
+      }, 
+      headerTitle:"Pre-Workout Meal",
       headerStyle: {
-        backgroundColor: '#EC7807',
-      },
-     
+      backgroundColor: '#EC7807',
+    },headerTitleStyle: {
+      color: '#FFFFFF'
+    },
       headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
@@ -380,10 +478,16 @@ const WorkoutStackNavigator = createStackNavigator({
 {
   defaultNavigationOptions:({navigation})=>{
     return { 
+      style: {
+        backgroundColor: 'black',
+      }, 
+      headerTitle:"Workout",
       headerStyle: {
-        backgroundColor: '#EC7807',
-      },
-    
+      backgroundColor: '#EC7807',
+    },
+    headerTitleStyle: {
+      color: '#FFFFFF'
+    },
       headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
@@ -394,10 +498,17 @@ const PostWorkoutMealStackNavigator = createStackNavigator({
 },
 {
   defaultNavigationOptions:({navigation})=>{
-    return {
+    return { 
+      style: {
+        backgroundColor: '#FFFFFF',
+      },
+      headerTitle:"Post-Workout Meal",
       headerStyle: {
-        backgroundColor: '#EC7807',
-      },    
+      backgroundColor: '#EC7807',
+      
+    },headerTitleStyle: {
+      color: '#FFFFFF'
+    },
       headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
       onPress={()=>navigation.openDrawer()}/>
     }
@@ -428,10 +539,10 @@ const DrawerContent = (props) => (
 
 
 const AppDrawerNavigator = createDrawerNavigator({
-  Home : HomeStackNavigator, 
-  PreMeal:PreMealStackNavigator,
-  Workout: WorkoutStackNavigator,
-  PostMeal:PostWorkoutMealStackNavigator
+  'Home' : HomeStackNavigator, 
+  'Pre-Workout Meal':PreMealStackNavigator,
+  'Workout': WorkoutStackNavigator,
+  'Post-Workout Meal':PostWorkoutMealStackNavigator
 }, {
   // define customComponent here
   contentComponent: DrawerContent,
