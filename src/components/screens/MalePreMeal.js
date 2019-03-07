@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableHighlight,Text, View, TouchableOpacity,Image,Dimensions,ScrollView ,Alert} from 'react-native';
+import { StatusBar,StyleSheet, TouchableHighlight,Text, View, TouchableOpacity,Image,Dimensions,ScrollView ,Alert} from 'react-native';
 import SimpleAccordion from 'react-native-simple-accordian';
 const deviceWidth = Dimensions.get('window').width
 const accordianData = 'This is sample Accordian Text....';
@@ -98,6 +98,7 @@ export default class AccordianExample extends Component {
   render() {
     return (
       <View style={{flex: 1,}}>
+      <StatusBar backgroundColor='#EC7807'></StatusBar>
         {/* <View style={styles.headerTextView}>
           <Text style={styles.headerText1}>Accordian</Text>
         </View> */}

@@ -1,4 +1,9 @@
 {
   "name": "FitnessClub",
-  "displayName": "FitnessClub"
+  "displayName": "FitnessClub",
+  "splash": {
+    "image": "./src/components/assets/images/logo.png",
+    "resizeMode": "cover"
+  }
+
 }

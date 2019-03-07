@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View,Image } from 'react-native'
+
+
 import Icon from 'react-native-vector-icons/Ionicons'
 import LoginScreen from './src/components/screens/Login'
 
@@ -16,6 +18,8 @@ import MalePostMealScreen from './src/components/screens/MalePostMeal'
 import FemalePostMealScreen from './src/components/screens/FemalePostMeal'
 
 import MaleWorkoutBiScreen from './src/components/screens/MaleWorkout_Bi'
+
+import SplashScreen from './src/components/screens/SplashScreen'
 
 import 
 { 
@@ -563,6 +567,7 @@ const AppDrawerNavigator = createDrawerNavigator({
 
 
 const SwitchNavigator = createSwitchNavigator({
+  Splash:SplashScreen,
     Login: LoginScreen,
     Home: AppDrawerNavigator,
   });

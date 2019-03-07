@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text,Image,TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text,Image,TouchableOpacity ,StatusBar} from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 
 export default class Example extends Component {
@@ -36,6 +36,7 @@ export default class Example extends Component {
         // spacing={20}
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, { backgroundColor: item.code }]}>  
+          <StatusBar backgroundColor='#EC7807'></StatusBar>
            <TouchableOpacity  onPress={() => this.props.navigation.navigate('MaleWorkout_Bi')}>
             <Image style={styles.imageThumbnail} source={item.workoutimage}   />
             <Text style={styles.itemName}>{item.name}</Text>
