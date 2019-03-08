@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { StatusBar,StyleSheet, TouchableHighlight,Text, View, TouchableOpacity,Image,Dimensions,ScrollView ,Alert} from 'react-native';
 import SimpleAccordion from 'react-native-simple-accordian';
+import PreWorkoutMaleModelScreen from './PreWorkoutMaleModel.js';
 const deviceWidth = Dimensions.get('window').width
 const accordianData = 'This is sample Accordian Text....';
-import * as _ from 'lodash'
+import * as _ from 'lodash';
 import { Button } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
+import ModalComponent from './PreWorkoutMaleModel';
 
 const DrawerContent = (props) => (
   <View>
@@ -69,32 +71,37 @@ export default class AccordianExample extends Component {
         this.state = ({
             content:'',
             open: false,
+            ModalVisible:false,
+            ModalFlatList:null,
+            ModalType:'',
         });
+      //  this.showModal=this.showModal.bind();
     }
-
   onChangeAccordian(section) {
     this.setState({ open: section });
 
-  }
-
+  } 
   renderHeader(section, i, isOpen) {
     return (      
       <View style={{backgroundColor:'#ffffff',flexDirection:'row',}}>
         <Text style={[styles.headerText,{width:deviceWidth-80,padding:10,textAlign:'center'}]}>{section.title}</Text>     
       </View>
     );
-  }
+  }  
+  showModal = (title) => {
+  Alert.alert('Alert Title','My Alert Msg',);
+    this.setState({ ModalVisible: true, ModalType:section.title});   
+}
 
   renderContent(section, i, isOpen) {
     return (
       <View style={styles.content}> 
         <Text>{section.content}</Text>     
-        <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={()=>Alert.alert('Alert Title','My Alert Msg',)}/>
-         
+        <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={()=>{ this.setState({ ModalVisible: true}); }}/>
+        {/* <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={this.showModal}/>  */}
       </View>
     );
   }
-
   render() {
     return (
       <View style={{flex: 1,}}>
@@ -120,7 +127,8 @@ export default class AccordianExample extends Component {
               duration={1000}
               onChange={this.onChangeAccordian.bind(this)}
             />
-          </ScrollView>
+          </ScrollView>          
+          <ModalComponent modelvisible={this.state.ModalVisible} ></ModalComponent>
         </View>
       </View>
       

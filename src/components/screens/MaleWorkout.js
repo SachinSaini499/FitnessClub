@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text,Image,TouchableOpacity ,StatusBar} from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 
-export default class Example extends Component {
+export default class MaleWorkout extends Component {
 
   constructor(props){
     super(props);
