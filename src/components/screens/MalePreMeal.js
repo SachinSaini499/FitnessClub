@@ -97,8 +97,8 @@ export default class AccordianExample extends Component {
     return (
       <View style={styles.content}> 
         <Text>{section.content}</Text>     
-        <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={()=>{ this.setState({ ModalVisible: true}); }}/>
-        {/* <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={this.showModal}/>  */}
+        {/* <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={()=>{ this.setState({ ModalVisible: true}); }}/> */}
+        <Icon style={{textAlign:'right',justifyContent: 'flex-end',}} name="md-add" size ={30}  onPress={this.showModal}/> 
       </View>
     );
   }

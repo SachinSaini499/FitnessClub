@@ -9,6 +9,7 @@ export default class Male extends Component {
     this._onPressButton = this._onPressButton.bind(this);
   }
   _onPressButton(txt) {
+    console.debug("texttext"+txt);
     this.props.navigation.navigate('MaleWorkout_Bi');
   }
  
@@ -18,22 +19,13 @@ export default class Male extends Component {
       { name: 'WORKOUT', code: '#3498db',workoutimage: require('../assets/images/2.png') }, 
       { name: 'POST WORKOUT MEAL', code: '#34495e',workoutimage: require('../assets/images/3.png') },
       { name: 'SETTINGS', code: '#27ae60',workoutimage: require('../assets/images/4.png') }, 
-      // { name: 'LEGS', code: '#8e44ad',workoutimage: require('../assets/images/5.png') },
-      // { name: 'BACK', code: '#f1c40f',workoutimage: require('../assets/images/6.png') }, 
-      // { name: 'ABS', code: '#e74c3c',workoutimage: require('../assets/images/7.png') }, 
-      // { name: 'FOREARM', code: '#95a5a6',workoutimage: require('../assets/images/8.png') },
-      // { name: 'CARDIO', code: '#d35400',workoutimage: require('../assets/images/8.png') }, 
-      // { name: 'CALF', code: '#bdc3c7',workoutimage: require('../assets/images/8.png') }, 
     ];
     const {navigate} = this.props.navigation;
     return (
       <FlatGrid
         itemDimension={130}
         items={items}
-        style={styles.gridView}
-        // staticDimension={300}
-        // fixed
-        // spacing={20}
+        style={styles.gridView}       
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, { backgroundColor: item.code }]}>  
           <StatusBar backgroundColor='#EC7807'></StatusBar>
@@ -55,8 +47,8 @@ const styles = StyleSheet.create({
   itemContainer: {
     justifyContent: 'flex-end',
     borderRadius: 5,
-    padding: 10,
-    height: 150,
+    padding: 20,
+    height: 270,
   },
   itemName: {
     fontSize: 16,
@@ -71,7 +63,7 @@ const styles = StyleSheet.create({
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 110,
+    height: 180,
     width:125,
     padding:5,
   },
