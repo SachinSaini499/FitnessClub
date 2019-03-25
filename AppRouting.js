@@ -60,13 +60,50 @@ import styles from './src/components/assets/styles';
 //   // }
 //   })
 
-
-
-
-
 const MaleStack= createStackNavigator({
   Male : {
     screen : HomeMaleScreen,
+    navigationOptions:({navigation})=>{
+      return { 
+        style: {
+          backgroundColor: 'black',
+        }, 
+        headerTitle:"Home",
+        headerStyle: {
+        backgroundColor: '#EC7807',
+      },
+        headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+        onPress={()=>navigation.openDrawer()}/>
+      }      
+    }
+  }, PreMealScreen : {
+    screen : MalePreMealScreen,
+    navigationOptions:({navigation})=>{
+      return {
+        header: null,        
+        // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+        // onPress={()=>navigation.openDrawer()}/>,
+        // headerStyle: {
+        //   backgroundColor: '#EC7807',
+        // },       
+      }      
+    }
+  },
+  WorkoutScreen : {
+    screen : MaleWorkoutScreen,
+    navigationOptions:({navigation})=>{
+      return {
+        header: null,        
+        // headerLeft : <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+        // onPress={()=>navigation.openDrawer()}/>,
+        // headerStyle: {
+        //   backgroundColor: '#EC7807',
+        // },       
+      }      
+    }
+  },
+  PostMealScreen : {
+    screen : MalePostMealScreen,
     navigationOptions:({navigation})=>{
       return {
         header: null,        
@@ -439,22 +476,24 @@ const PostWorkoutMealTabNavigator = createBottomTabNavigator(
 const HomeStackNavigator = createStackNavigator({
   Home : HomeTabNavigator
 },
+
 {
   defaultNavigationOptions:({navigation})=>{
     return { 
-      style: {
-        backgroundColor: 'black',
-      }, 
-      headerTitle:"Home",
-      headerStyle: {
-      backgroundColor: '#EC7807',
-    },
-      headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
-      onPress={()=>navigation.openDrawer()}/>
+      header : null,
+    //   style: {
+    //     backgroundColor: 'black',
+    //   }, 
+    //   headerTitle:"Home",
+    //   headerStyle: {
+    //   backgroundColor: '#EC7807',
+    // },
+    //   headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
+    //   onPress={()=>navigation.openDrawer()}/>
     }
   }
 }
-,
+
 )
 const PreMealStackNavigator = createStackNavigator({
   PreMeal : PreMealTabNavigator

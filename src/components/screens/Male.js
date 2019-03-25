@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text,Image,TouchableOpacity ,StatusBar} from 'react-native';
+import { StyleSheet, View, Text,Image,TouchableOpacity ,StatusBar,ImageBackground} from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-
+import MaleWorkoutBi from './MaleWorkout_Bi';
+import {getScreen} from './Methods'
 export default class Male extends Component {
 
   constructor(props){
@@ -9,14 +10,16 @@ export default class Male extends Component {
     this._onPressButton = this._onPressButton.bind(this);
   }
   _onPressButton(txt) {
-    console.debug("texttext"+txt);
-    this.props.navigation.navigate('MaleWorkout_Bi');
+    var ScreenName=getScreen(txt);  
+    console.log(txt);  
+    this.props.navigation.navigate('PreMealScreen');
+   
   }
  
   render() {
     const items = [
-      { name: 'PRE-WORKOUT MEAL', code: '#1abc9c',workoutimage: require('../assets/images/1.png') },
-      { name: 'WORKOUT', code: '#3498db',workoutimage: require('../assets/images/2.png') }, 
+      { name: 'PRE-WORKOUT MEAL', code: '#1abc9c',workoutimage: require('../assets/images/premeal.png') },
+      { name: 'WORKOUT', code: '#3498db',workoutimage: require('../assets/images/workout.png') }, 
       { name: 'POST WORKOUT MEAL', code: '#34495e',workoutimage: require('../assets/images/3.png') },
       { name: 'SETTINGS', code: '#27ae60',workoutimage: require('../assets/images/4.png') }, 
     ];
@@ -27,12 +30,16 @@ export default class Male extends Component {
         items={items}
         style={styles.gridView}       
         renderItem={({ item, index }) => (
-          <View style={[styles.itemContainer, { backgroundColor: item.code }]}>  
-          <StatusBar backgroundColor='#EC7807'></StatusBar>
+          <View style={[styles.itemContainer, { backgroundColor: '#EC7807' }]}>  
+          <StatusBar backgroundColor='#EC7807'></StatusBar>         
            <TouchableOpacity  onPress={() => this._onPressButton(item.name)}>
-            <Image style={styles.imageThumbnail} source={item.workoutimage}   />
+           <ImageBackground source={item.workoutimage} style={{width: '100%', height: '100%'}}>
+           <View style={styles.innerContainer}>
+            {/* <Image style={styles.imageThumbnail} source={item.workoutimage}  /> */}
             <Text style={styles.itemName}>{item.name}</Text>
-            </TouchableOpacity > 
+            </View>
+            </ImageBackground>
+            </TouchableOpacity >            
           </View>
         )}
       />
@@ -44,15 +51,19 @@ const styles = StyleSheet.create({
     marginTop: 2,
     flex: 1,
   },
-  itemContainer: {
+  innerContainer: {    
+    top: 0, left: 0, 
+    right: 0, bottom: 0, justifyContent: 'flex-end', alignItems: 'center'
+  },
+  itemContainer: {    
     justifyContent: 'flex-end',
-    borderRadius: 5,
-    padding: 20,
-    height: 270,
+    borderRadius: 2,
+    padding: 2,
+    height: 180,
   },
   itemName: {
     fontSize: 16,
-    color: '#fff',
+    color: 'black',
     fontWeight: '600',
   },
   itemCode: {
@@ -63,8 +74,7 @@ const styles = StyleSheet.create({
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 180,
-    width:125,
-    padding:5,
+    height: 150,   
+    width:'100%',
   },
 });
