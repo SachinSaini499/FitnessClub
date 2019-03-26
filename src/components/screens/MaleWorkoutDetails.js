@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View,StatusBar } from 'react-native'
 
-export default class MaleWorkout_Bi extends Component {
+export default class MaleWorkoutDetails extends Component {
   render() {
     return (
       <View>

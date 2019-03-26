@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text,Image,TouchableOpacity ,StatusBar,ImageBackground} from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-import MaleWorkoutBi from './MaleWorkout_Bi';
+
 import {getScreen} from './Methods'
 export default class Male extends Component {
 
@@ -12,16 +12,16 @@ export default class Male extends Component {
   _onPressButton(txt) {
     var ScreenName=getScreen(txt);  
     console.log(txt);  
-    this.props.navigation.navigate('PreMealScreen');
+    this.props.navigation.navigate(ScreenName);
    
   }
  
   render() {
     const items = [
-      { name: 'PRE-WORKOUT MEAL', code: '#1abc9c',workoutimage: require('../assets/images/premeal.png') },
+      { name: 'PRE MEAL', code: '#1abc9c',workoutimage: require('../assets/images/premeal.png') },
       { name: 'WORKOUT', code: '#3498db',workoutimage: require('../assets/images/workout.png') }, 
-      { name: 'POST WORKOUT MEAL', code: '#34495e',workoutimage: require('../assets/images/3.png') },
-      { name: 'SETTINGS', code: '#27ae60',workoutimage: require('../assets/images/4.png') }, 
+      { name: 'POST MEAL', code: '#34495e',workoutimage: require('../assets/images/postmeal.png') },
+      { name: 'SETTINGS', code: '#27ae60',workoutimage: require('../assets/images/setting.png') }, 
     ];
     const {navigate} = this.props.navigation;
     return (

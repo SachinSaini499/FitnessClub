@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text,Image,TouchableOpacity ,StatusBar} from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
+import MaleWorkoutDetailsScreen from '../screens/MaleWorkoutDetails';
 
 export default class MaleWorkout extends Component {
 
@@ -9,7 +10,7 @@ export default class MaleWorkout extends Component {
     this._onPressButton = this._onPressButton.bind(this);
   }
   _onPressButton(txt) {
-    this.props.navigation.navigate('MaleWorkout_Bi');
+    this.props.navigation.navigate('');
   }
  
   render() {

@@ -1,16 +1,16 @@
 export const getScreen=(txt)=>{
 var screenname="";
-    if(txt=="PRE-WORKOUT MEAL")
+    if(txt=="PRE MEAL")
     {
-        screenname="MalePreMeal";   
+        screenname="MalePreWorkoutMealStack";   
     }
     else if (txt=="WORKOUT")
     {
-        screenname="MaleWorkout";    
+        screenname="MaleWorkoutStackk";    
     }
-    else if(txt=="POST WORKOUT MEAL")
+    else if(txt=="POST MEAL")
     {
-        screenname="MalePostMeal";
+        screenname="MalePostMealStack";
     }
     else if(txt=="SETTINGS")
     {

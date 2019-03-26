@@ -42,11 +42,10 @@ export default StyleSheet.create({
     },
     image:
     {
-      width: 100, height: 80
+      width: 260, height: 130,
     },
     container2: {
-      flex: 1,
-     
+      flex: 1,     
       backgroundColor: "#e5e5e5"
     },
     SectionHeader:{
@@ -62,8 +61,5 @@ export default StyleSheet.create({
       color: '#000',
       backgroundColor : '#F5F5F5'
   }
-
-
-
   });
   
