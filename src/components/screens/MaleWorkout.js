@@ -10,7 +10,7 @@ export default class MaleWorkout extends Component {
     this._onPressButton = this._onPressButton.bind(this);
   }
   _onPressButton(txt) {
-    this.props.navigation.navigate('');
+    this.props.navigation.navigate('MaleWorkoutDetailsStack');
   }
  
   render() {
@@ -38,7 +38,7 @@ export default class MaleWorkout extends Component {
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, { backgroundColor: item.code }]}>  
           <StatusBar backgroundColor='#EC7807'></StatusBar>
-           <TouchableOpacity  onPress={() => this.props.navigation.navigate('MaleWorkout_Bi')}>
+          <TouchableOpacity  onPress={() => this._onPressButton(item.name)}>
             <Image style={styles.imageThumbnail} source={item.workoutimage}   />
             <Text style={styles.itemName}>{item.name}</Text>
             </TouchableOpacity > 
