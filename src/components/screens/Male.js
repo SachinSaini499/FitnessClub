@@ -3,6 +3,7 @@ import { StyleSheet, View, Text,Image,TouchableOpacity ,StatusBar,ImageBackgroun
 import { FlatGrid } from 'react-native-super-grid';
 
 import {getScreen} from './Methods'
+// import {signup} from './FirebaseService'
 export default class Male extends Component {
 
   constructor(props){
@@ -12,6 +13,7 @@ export default class Male extends Component {
   _onPressButton(txt) {
     var ScreenName=getScreen(txt);  
     console.log(txt);  
+    // signup("lokesh.gupta@rsystems.com","Admin@123");
     this.props.navigation.navigate(ScreenName);
    
   }
