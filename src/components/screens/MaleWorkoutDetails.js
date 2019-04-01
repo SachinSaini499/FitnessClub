@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-//import rect in our project
-import {
-  StyleSheet,
-  View,
-  FlatList,
-  ActivityIndicator,
-  Image,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+
+import {getScreen} from './Methods'
+
+import {StyleSheet,View,FlatList,ActivityIndicator,Image, Text,TouchableOpacity,} from 'react-native';
+import MaleWorkoutDetailsComponent from '../custom/MaleWorkoutComponent'
 //import all the components we will need
  
 export default class MaleWorkoutDetails extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       dataSource: {},
     };
@@ -21,7 +16,7 @@ export default class MaleWorkoutDetails extends Component {
   _onPressButton(txt) {
     var ScreenName=getScreen(txt);  
     console.log(txt);  
-    this.props.navigation.navigate(ScreenName);   
+     this.props.navigation.navigate(ScreenName);   
   }
   componentDidMount() {
     var that = this;
@@ -42,23 +37,7 @@ export default class MaleWorkoutDetails extends Component {
     
     const {navigate} = this.props.navigation;
     return (
-      <View style={styles.MainContainer}>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({ item }) => (
-            <View style={{ flex: 1, flexDirection: 'column', margin: 1 }}>
-             <TouchableOpacity  onPress={() => this._onPressButton(item.name)}>
-            <Image style={styles.imageThumbnail} source={item.workoutimage}  />
-            <Text style={styles.itemName}>{item.name}</Text>
-            <Text style={styles.itemName}>{item.name}</Text>
-            </TouchableOpacity>
-            </View>
-          )}
-          //Setting the number of column
-          numColumns={1}
-          keyExtractor={(item, index) => index}
-        />
-      </View>
+     <MaleWorkoutDetailsComponent title="TextMe" navigation={navigate} data={this.state.dataSource} ></MaleWorkoutDetailsComponent>
     );
   }
 }

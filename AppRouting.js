@@ -227,18 +227,19 @@ const MaleStack= createStackNavigator({
             screen : MaleWorkoutDetailsScreen,
             navigationOptions:({navigation})=>{
               return {  
-                style: {
-                  backgroundColor: 'black',
-                }, 
-                headerTitle:"Chest",
-                headerStyle: {
-                backgroundColor: '#EC7807',
-              },
-              headerTitleStyle: {
-                color: '#FFFFFF'
-              },
-                headerLeft: <Icon style={{paddingLeft: 10 }} name="md-arrow-round-back" size ={30} 
-                onPress={()=>this.props.navigation.navigate('MaleWorkoutStackk')}/>
+                header: null,
+              //   style: {
+              //     backgroundColor: 'black',
+              //   }, 
+              //   headerTitle:"Chest",
+              //   headerStyle: {
+              //   backgroundColor: '#EC7807',
+              // },
+              // headerTitleStyle: {
+              //   color: '#FFFFFF'
+              // },
+              //   headerLeft: <Icon style={{paddingLeft: 10 }} name="md-arrow-round-back" size ={30} 
+              //   onPress={()=>this.props.navigation.navigate('MaleWorkoutStack')}/>
               }
             }
           }
