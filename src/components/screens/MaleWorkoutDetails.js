@@ -24,10 +24,10 @@ export default class MaleWorkoutDetails extends Component {
     //   return { id: i, src: 'http://placehold.it/200x200?text=' + (i + 1) };
     // });
     const items = [
-      { name: 'PRE MEAL', code: '#1abc9c',workoutimage: require('../assets/images/premeal.png') },
-      { name: 'WORKOUT', code: '#3498db',workoutimage: require('../assets/images/workout.png') }, 
-      { name: 'POST MEAL', code: '#34495e',workoutimage: require('../assets/images/postmeal.png') },
-      { name: 'SETTINGS', code: '#27ae60',workoutimage: require('../assets/images/setting.png') }, 
+      { Excercisename: 'Bench Press',strength: 'Beginner', code: '#1abc9c',workoutimage: require('../assets/images/premeal.png') },
+      { Excercisename: 'Close Grip Bench Press',strength: 'Intermediate', code: '#3498db',workoutimage: require('../assets/images/workout.png') }, 
+      { Excercisename: 'Incline Press',strength: 'Beginner', code: '#34495e',workoutimage: require('../assets/images/postmeal.png') },
+      { Excercisename: 'Push-Ups',strength: 'Beginner', code: '#27ae60',workoutimage: require('../assets/images/setting.png') }, 
     ];
     that.setState({
       dataSource: items,

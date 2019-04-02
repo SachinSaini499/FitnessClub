@@ -31,7 +31,7 @@ export default class Female extends Component {
         style={styles.gridView}       
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, { backgroundColor: '#EC7807' }]}>  
-          <StatusBar backgroundColor='#EC7807'></StatusBar>         
+          <StatusBar backgroundColor='#ff4500'></StatusBar>         
            <TouchableOpacity  onPress={() => this._onPressButton(item.name)}>
            <ImageBackground source={item.workoutimage} style={{width: '100%', height: '100%'}}>
            <View style={styles.innerContainer}>

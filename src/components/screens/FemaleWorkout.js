@@ -5,7 +5,7 @@ export default class FemaleWorkout extends Component {
   render() {
     return (
       <View>
-        <StatusBar backgroundColor='#EC7807'></StatusBar>
+        <StatusBar backgroundColor='#ff4500'></StatusBar>
         <Text> textInComponent </Text>
       </View>
     )

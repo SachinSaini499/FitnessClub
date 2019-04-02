@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View,Image } from 'react-native'
+import { Text, View,Image,TouchableOpacity } from 'react-native'
 
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -568,23 +568,18 @@ const PostWorkoutMealStackNavigator = createStackNavigator({
     }
   }
 })
+
 const DrawerContent = (props) => (
-  <View>
-    <View
-      style={{       
-        backgroundColor: '#FEFBE8',            
-        height: 140,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      {/* <Text style={{ color: 'white', fontSize: 30 }}>
-        Header
-      </Text> */}
-       <Image
-          source={require('./src/components/assets/images/logo2.png')}
-          style={styles.image}
-        />
+  
+  <View >
+    <View style={styles.CircleShapeView}>    
+     
+        <Image source={require('./src/components/assets/images/logo2.png')} style={styles.CircleShapeImage}/>
+        {/* <TouchableOpacity style={styles.CircleShapeCamra} > */}
+        <Image source={require('./src/components/assets/images/cmraicon.png')} style={styles.CircleShapeCamra}/>
+        {/* </TouchableOpacity> */}
+        <Text style={{ color: '#EC7807', fontSize: 15, bottom:'13%', position: 'absolute'}}>Sachin Saini</Text>
+        <Text style={{ color: '#EC7807', fontSize: 15, bottom:'1%', position: 'absolute'}}>09716955428</Text>
     </View>
     <DrawerItems {...props} />
   </View>
@@ -602,7 +597,8 @@ const AppDrawerNavigator = createDrawerNavigator({
   contentComponent: DrawerContent,
   contentOptions: {
     headerStyle: {
-      backgroundColor: 'black',      
+      backgroundColor: 'black', 
+           
     },
     tintColor:    '#FFFFFF',
     activeTintColor: '#FFFFFF',
@@ -632,6 +628,7 @@ const SwitchNavigator = createSwitchNavigator({
   const AppNavigator = createAppContainer(SwitchNavigator); 
   
   export default class App extends React.Component {
+    
     render() {
       return (
        <AppNavigator />

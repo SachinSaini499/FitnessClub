@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import rect in our project
-import {  StyleSheet,  View,  FlatList, ActivityIndicator, Image,Text,TouchableOpacity,} from 'react-native';
+import {  StyleSheet,  View,  FlatList, ActivityIndicator, Image,Text,TouchableOpacity,ImageBackground,Icon} from 'react-native';
+import {getScreen} from '../screens/Methods'
 //import all the components we will need
  
 export default class MaleWorkoutComponent extends Component {
@@ -42,6 +43,14 @@ export default class MaleWorkoutComponent extends Component {
     console.log(txt);  
     this.props.navigation.navigate(ScreenName);   
   }
+  _onPressHeartButton
+  _onPressButton(txt) {
+    var ScreenName=getScreen(txt);  
+    console.log(txt);  
+    //this.props.navigation.navigate(ScreenName);   
+  }
+
+
 //   componentDidMount() {
 //     var that = this;
 //     // let items = Array.apply(null, Array(60)).map((v, i) => {
@@ -66,10 +75,12 @@ export default class MaleWorkoutComponent extends Component {
           data={this.props.data}
           renderItem={({ item }) => (
             <View style={{ flex: 1, flexDirection: 'column', margin: 1 }}>
-             <TouchableOpacity  onPress={() => this._onPressButton(item.name)}>
-            <Image style={styles.imageThumbnail} source={item.workoutimage}  />
-            <Text style={styles.itemName}>{item.name}</Text>
-            <Text style={styles.itemName}>{item.name}</Text>
+             <TouchableOpacity  onPress={() => this._onPressButton(item.Excercisename)}>
+             <ImageBackground source={item.workoutimage} style={styles.imageThumbnail}>           
+            <Text style={styles.itemNameTop}>{item.strength}</Text>
+            <Image style={styles.itemNameHeart} source={require('../assets/images/heart.png')}  />
+            <Text style={styles.itemNameBottom}>{item.Excercisename}</Text>
+            </ImageBackground>
             </TouchableOpacity>
             </View>
           )}
@@ -87,15 +98,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     paddingTop: 3,
-  }, itemName: {
-    fontSize: 16,
-    color: 'black',
-    fontWeight: '600',
+  }, 
+  itemNameTop: {
+    fontSize: 16,   
+    fontWeight: 'bold',
+    color: 'white',
+    position: 'absolute', // child
+   top: 0, // position where you want
+   right: '3%',
+  }, 
+  itemNameHeart: {
+    height: 20,
+    width:'10%',
+    position: 'absolute', // child
+    top: '11%',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+     // position where you want
+    right: '3%',
+  },
+  itemNameBottom: {
+    fontSize: 16,   
+    fontWeight: 'bold',
+    color: 'white',
+    position: 'absolute', // child
+   bottom: 0, // position where you want
+   left: 0
   },
   imageThumbnail: {
-    justifyContent: 'center',
-    alignItems: 'center',
     height: 200,
-    width:'100%'
+    width:'100%',
+    position: 'relative', // because it's parent
+    top: 2,
+    left: 2
   },
 });
