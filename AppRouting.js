@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View,Image,TouchableOpacity } from 'react-native'
+import { Text, View,Image,TouchableOpacity ,Modal} from 'react-native'
 
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -18,6 +18,8 @@ import MalePostMealScreen from './src/components/screens/MalePostMeal'
 import FemalePostMealScreen from './src/components/screens/FemalePostMeal'
 
 import MaleWorkoutDetailsScreen from './src/components/screens/MaleWorkoutDetails'
+
+import CustomModal from './src/components/custom/ModalComponent'
 
 
 import SplashScreen from './src/components/screens/SplashScreen'
@@ -560,7 +562,9 @@ const PostWorkoutMealStackNavigator = createStackNavigator({
       headerStyle: {
       backgroundColor: '#EC7807',
       
-    },headerTitleStyle: {
+    },
+    headerTitleStyle: 
+    {
       color: '#FFFFFF'
     },
       headerLeft: <Icon style={{paddingLeft: 10 }} name="md-menu" size ={30} 
@@ -568,16 +572,14 @@ const PostWorkoutMealStackNavigator = createStackNavigator({
     }
   }
 })
-
-const DrawerContent = (props) => (
-  
+const DrawerContent = (props) => (  
   <View >
-    <View style={styles.CircleShapeView}>    
-     
+    <View style={styles.CircleShapeView}>  
+    <CustomModal modalVisible={true}></CustomModal>
         <Image source={require('./src/components/assets/images/logo2.png')} style={styles.CircleShapeImage}/>
-        {/* <TouchableOpacity style={styles.CircleShapeCamra} > */}
-        <Image source={require('./src/components/assets/images/cmraicon.png')} style={styles.CircleShapeCamra}/>
-        {/* </TouchableOpacity> */}
+        <TouchableOpacity onPress={()=>this.setState({ modalKey: !this.state.modalKey})} style={{width:'15%',height:'15%',bottom:'30%',right:'28%',position:'absolute'}}> 
+        <Image source={require('./src/components/assets/images/flat-camera-icon.png')} style={styles.CircleShapeCamra}/>
+        </TouchableOpacity>
         <Text style={{ color: '#EC7807', fontSize: 15, bottom:'13%', position: 'absolute'}}>Sachin Saini</Text>
         <Text style={{ color: '#EC7807', fontSize: 15, bottom:'1%', position: 'absolute'}}>09716955428</Text>
     </View>
@@ -628,7 +630,16 @@ const SwitchNavigator = createSwitchNavigator({
   const AppNavigator = createAppContainer(SwitchNavigator); 
   
   export default class App extends React.Component {
-    
+//     constructor(props) {
+//       super(props);  
+//      this.state={
+//        modalKey:false
+// }
+//     }
+    // componentDidMount()
+    // {
+    //   alert(this.state.modalKey);
+    // }
     render() {
       return (
        <AppNavigator />

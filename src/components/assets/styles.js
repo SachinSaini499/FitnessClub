@@ -30,11 +30,11 @@ export default StyleSheet.create({
 }
 ,
    CircleShapeCamra: {
-    width: '15%',
-    height: '15%',   
+    width: '130%',
+    height: '130%',   
+    borderRadius: 150/2,
     position: 'absolute', // child
-    bottom:'30%',
-    right:'28%'  
+   
 },
     welcome: {
       fontSize: 20,
