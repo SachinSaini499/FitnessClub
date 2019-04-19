@@ -103,6 +103,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy 'react-native-camera', 'general' 
     }
     splits {
         abi {
@@ -112,6 +113,13 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a"
         }
     }
+
+    allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
+    }
+}
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
@@ -133,7 +141,9 @@ android {
     }
 }
 
-dependencies {
+dependencies {  
+
+    implementation project(':react-native-camera')
     implementation project(':react-native-sqlite-storage')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')

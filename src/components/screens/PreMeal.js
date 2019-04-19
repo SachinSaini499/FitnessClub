@@ -5,7 +5,7 @@ export default class PreMeal extends Component {
   render() {
     return (
       <View>
-        <StatusBar backgroundColor='#ff4500'></StatusBar>
+        <StatusBar backgroundColor='#2ED085'></StatusBar>
         <Text> textInComponent </Text>
       </View>
     )

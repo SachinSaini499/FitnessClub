@@ -27,7 +27,7 @@ class SplashScreen extends React.Component {
     return (
       <View style={styles.container}>
       <StatusBar backgroundColor='#FFFFFF'></StatusBar>
-      <Image source={require('../assets/images/logo.png')} style={{width: 150, alignItems: 'center',
+      <Image source={require('../assets/images/logo.jpg')} style={{width: 150, alignItems: 'center',
     justifyContent: 'center',height: 150}}/>
         {/* <Text style={styles.textStyles}>
           Blitz Reading

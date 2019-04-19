@@ -11,23 +11,23 @@ export default class MaleWorkout extends Component {
   }
   _onPressButton(txt) {
     this.props.navigation.navigate('MaleWorkoutDetailsStack');
-  }
- 
+  } 
   render() {
     const items = [
-      { name: 'CHEST', code: '#1abc9c',workoutimage: require('../assets/images/1.png') },
-      { name: 'BICEPS', code: '#3498db',workoutimage: require('../assets/images/2.png') }, 
-      { name: 'TRICEPS', code: '#34495e',workoutimage: require('../assets/images/3.png') },
-      { name: 'SHOULDER', code: '#27ae60',workoutimage: require('../assets/images/4.png') }, 
-      { name: 'LEGS', code: '#8e44ad',workoutimage: require('../assets/images/5.png') },
-      { name: 'BACK', code: '#f1c40f',workoutimage: require('../assets/images/6.png') }, 
-      { name: 'ABS', code: '#e74c3c',workoutimage: require('../assets/images/7.png') }, 
-      { name: 'FOREARM', code: '#95a5a6',workoutimage: require('../assets/images/8.png') },
-      { name: 'CARDIO', code: '#d35400',workoutimage: require('../assets/images/8.png') }, 
-      { name: 'CALF', code: '#bdc3c7',workoutimage: require('../assets/images/8.png') }, 
+      { name: 'CHEST', code: '#1DCA88',workoutimage: require('../assets/images/workout/chest.png') },
+      { name: 'BICEPS', code: '#1DCA88',workoutimage: require('../assets/images/workout/biceps.png') }, 
+      { name: 'TRICEPS', code: '#1DCA88',workoutimage: require('../assets/images/workout/tricep.png') },
+      { name: 'SHOULDER', code: '#1DCA88',workoutimage: require('../assets/images/workout/shoulder.png') }, 
+      { name: 'LEGS', code: '#1DCA88',workoutimage: require('../assets/images/workout/legs.png') },
+      { name: 'BACK', code: '#1DCA88',workoutimage: require('../assets/images/workout/back.png') }, 
+      { name: 'ABS', code: '#1DCA88',workoutimage: require('../assets/images/workout/abs.png') }, 
+      { name: 'FOREARM', code: '#1DCA88',workoutimage: require('../assets/images/workout/forearm.png') },
+      { name: 'CARDIO', code: '#1DCA88',workoutimage: require('../assets/images/workout/cardio.png') }, 
+      { name: 'CALF', code: '#1DCA88',workoutimage: require('../assets/images/workout/cardio.png') }, 
     ];
     const {navigate} = this.props.navigation;
     return (
+       
       <FlatGrid
         itemDimension={130}
         items={items}
@@ -37,14 +37,15 @@ export default class MaleWorkout extends Component {
         // spacing={20}
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, { backgroundColor: item.code }]}>  
-          <StatusBar backgroundColor='#ff4500'></StatusBar>
+          <StatusBar backgroundColor='#2ED085'></StatusBar>
           <TouchableOpacity  onPress={() => this._onPressButton(item.name)}>
-            <Image style={styles.imageThumbnail} source={item.workoutimage}   />
-            <Text style={styles.itemName}>{item.name}</Text>
-            </TouchableOpacity > 
+           <Image style={styles.imageThumbnail} source={item.workoutimage}   />
+           <Text style={[styles.itemName,{ color:'#14284B'}]}>{item.name}</Text>
+          </TouchableOpacity > 
           </View>
         )}
       />
+  
     );
   }
 }

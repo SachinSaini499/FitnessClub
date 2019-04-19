@@ -17,7 +17,7 @@ export default StyleSheet.create({
       position: 'relative', // because it's parent
     top: 0,
     left: 0,
-      backgroundColor: '#FEFBE8',
+      backgroundColor: '#2ED085',
      // backgroundColor: '#00BCD4'
   },
    CircleShapeImage: {
@@ -37,14 +37,22 @@ export default StyleSheet.create({
    
 },
     welcome: {
+      color:'#14284B',
       fontSize: 20,
+      textAlign: 'center',
+      margin: 10,
+      fontWeight: 'bold',
+    },
+    outputMessage: {
+      color:'red',
+      fontSize: 15,
       textAlign: 'center',
       margin: 10,
       fontWeight: 'bold',
     },
     instructions: {
       textAlign: 'center',
-      color: '#333333',
+      color: '#2ED085',
       marginBottom: 5,
     },
       textInput: {
@@ -52,20 +60,50 @@ export default StyleSheet.create({
       fontSize: 16,
       margin: 10,
       padding: 10, 
+      color:'#14284B',
       borderColor: 'gray', 
       borderWidth: 2,
       borderRadius: 20
+    }, 
+    textInput2: {
+      width: 250,     
+      fontSize: 16,
+      margin: 10,
+      padding: 10, 
+      borderColor: 'gray', 
+      borderWidth: 2,
+      borderRadius: 10
     },
     button: {
       alignItems: 'center',
-      backgroundColor: '#EC7807',
-      padding: 10,
+      justifyContent:'center',
+      backgroundColor: '#2ED085',
+      padding: 10,      
       borderRadius:10,
-      width:200,
+      width:'50%',
+    }, 
+    modelButton: {
+      alignItems: 'center',
+      justifyContent:'center',
+      backgroundColor: '#2ED085',
+      padding: 10,
+      margin:5,      
+      borderRadius:10,
+      width:'30%',
+    },
+    recButton: {
+      alignItems: 'flex-end',
+      justifyContent:'center',
+      backgroundColor: '#2ED085',
+      padding: 10,
+      margin:5,      
+      borderRadius:10,
+      width:'30%',
     },
     text:{
+      color:'#14284B',
       fontWeight: 'bold',
-      fontSize:20
+      fontSize:15
     },
     image:
     {
@@ -73,10 +111,10 @@ export default StyleSheet.create({
     },
     container2: {
       flex: 1,     
-      backgroundColor: "#e5e5e5"
+      backgroundColor: "#2ED085"
     },
     SectionHeader:{
-      backgroundColor : '#EC7807',
+      backgroundColor : '#2ED085',
       fontSize : 20,
       padding: 0,
       color: 'black',
@@ -85,7 +123,7 @@ export default StyleSheet.create({
     SectionListItemS:{
       fontSize : 16,
       padding: 6,
-      color: '#000',
+      color: '#2ED085',
       backgroundColor : '#F5F5F5'
   }
   });
